@@ -80,13 +80,18 @@ document.querySelector("html").classList.add(mode)
   return (
     <ThemeContextProvider value={{mode,darkMode,lightMode}}>
     <ToDoProvider value = {{todos, addTodo, deleteTodo, editTodo, toggleTodo}}>
-  <div className="bg-[#ffffff] fixed top-0 left-0 w-screen h-screen py-8 font-mono text-gray-800 dark:bg-black dark:text-white">
-                <div className="w-full max-w-2xl mx-auto rounded-lg px-4 py-3 ">
-                    <h1 className="text-3xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
+  <div className="  min-h-screen py-4 font-mono text-gray-800 dark:bg-black dark:text-white">
+                <div className="w-full max-w-2xl mx-auto rounded-lg px-4 py-3">
+                  <div className='flex justify-center items-center gap-8  mb-10'>
+                  <h1 className="text-3xl font-bold text-center ">Manage Your Todos</h1>
+                  <Themebtn/>
+                  </div>
+
+
                     <div className="mb-4">
                       <ToDoForm/>
                       </div>
-                      <div className='flex flex-wrap gap-y-3'>
+                      <div className='flex flex-col max-h-[530px] gap-y-3 overflow-auto  '>
                       {todos.map((todo)=>(
                         <div key={todo.id} className='w-full'>
                           <ToDoItem todo = {todo}/>
@@ -95,8 +100,8 @@ document.querySelector("html").classList.add(mode)
                       </div>
                 </div>
                 {/* <img src="../icons8-sunlight-50.png" alt="" className='absolute right-5 bottom-3 w-13'/> */}
-                <Themebtn/>
     </div>
+
     </ToDoProvider>
     </ThemeContextProvider>
   )
